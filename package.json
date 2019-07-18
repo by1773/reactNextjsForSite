@@ -4,9 +4,9 @@
   "description": "koa2+nextjs模拟github仓库",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "nodemon ./server/server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "cross-env NODE_ENV=production next start"
   },
   "repository": {
     "type": "git",
@@ -17,12 +17,32 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "antd": "^3.20.1",
+    "axios": "^0.19.0",
     "babel-plugin-import": "^1.12.0",
-    "ioredis": "^4.11.1",
     "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
+    "koa-generic-session": "^2.0.1",
+    "koa-json-error": "^3.1.2",
+    "koa-parameter": "^3.0.1",
+    "koa-redis": "^4.0.0",
     "koa-router": "^7.4.0",
-    "next": "^9.0.1",
+    "lru-cache": "^5.1.1",
+    "module-alias": "^2.2.0",
+    "moment": "^2.24.0",
+    "next": "^9.0.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redis": "^2.8.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "require-directory": "^2.1.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "redux-devtools-extension": "^2.13.8"
+  },
+  "_moduleAliases": {
+    "@root": "."
   }
 }
