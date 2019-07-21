@@ -74,6 +74,7 @@ class MyApp extends App {
             padding-right: 0;
           }
           .ant-layout-content {
+            margin-top: 64px;
             background: #fff;
           }
         `}</style>

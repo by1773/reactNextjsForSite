@@ -1,8 +1,10 @@
 const Router = require('koa-router')
 const requireDirectory = require('require-directory')
+const atob = require('atob')
 
 class InitManager {
   static initCore(app) {
+    global.atob = atob
     InitManager.app = app
     InitManager.loadRouters()
   }

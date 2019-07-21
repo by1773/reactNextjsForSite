@@ -2,15 +2,12 @@ import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Button, Icon, Tabs } from 'antd'
 import getConfig from 'next/config'
-import Router, { withRouter } from 'next/router'
-import LRU from 'lru-cache'  // 缓存处理
+import Router, { withRouter } from 'next/router' 
 import Repo from '../components/Repo'
-const { http } = require('../lib/util')
+const { http, Cache } = require('../lib/util')
 
 const { publicRuntimeConfig } = getConfig()
-const cache = new LRU({
-  maxAge: 1000*60*10
-})
+const cache = new Cache(1000 * 60 * 10)
 
 const isServer = typeof window === 'undefined'
 
@@ -51,10 +48,10 @@ function Index({
   useEffect(() => {
     if(!isServer) {
       if(userRepos) {
-        cache.set('userRepos', userRepos)
+        cache.setCacheByName('userRepos', userRepos)
       }
       if(userStared) {
-        cache.set('userStared', userStared)
+        cache.setCacheByName('userStared', userStared)
       }
     }
   }, [userRepos, userStared])
@@ -132,10 +129,10 @@ Index.getInitialProps = async ({ctx}) => {
   }
 
   if(!isServer) {
-    if (cache.get('userRepos') && cache.get('userStared')) {
+    if (cache.getCache('userRepos') && cache.getCache('userStared')) {
       return{
-        userRepos: cache.get('userRepos'),
-        userStared: cache.get('userStared')
+        userRepos: cache.getCache('userRepos'),
+        userStared: cache.getCache('userStared')
       }
     }
   }

@@ -1,13 +1,9 @@
 import Link from 'next/link'
 import { Icon } from 'antd'
-import moment from 'moment'
+import { formatDate } from '../lib/util'
 
 function getLicense(license) {
   return license ? `${license.spdx_id} license` : ''
-}
-
-function formatDate(time) {
-  return moment(time).fromNow()
 }
 
 function formatStarCount(num) {
@@ -27,7 +23,7 @@ export default ({repo}) => {
     <div className="repo-wrapper">
       <div className="basic-info">
         <h3 className="repo-title">
-          <Link href={`/detail?owner=${repo.owner.login}&name=${repo.name}`}>
+          <Link href={`/detail?owner=${repo.owner ? repo.owner.login : ''}&name=${repo.name || ''}`}>
             <a href="javascript:;">{repo.full_name}</a>
           </Link>
         </h3>

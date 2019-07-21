@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'next/router'
 import Link from 'next/link'
-import { Layout, Icon, Input, Avatar, Tooltip, Dropdown, Menu } from 'antd'
+import { Layout, Icon, Input, Avatar, Tooltip, Dropdown, Menu, BackTop } from 'antd'
 import Container from '../components/Container'
 import { actionCreators } from '../store'
 
@@ -46,7 +46,7 @@ const LayoutComp = ({ children, user, logout, router }) => {
 
   return (
     <Layout>
-      <Header>
+      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
         <Container renderer={<div className="header-wrapper" />}>
           <div className="header-left">
             <div className="logo">
@@ -91,6 +91,7 @@ const LayoutComp = ({ children, user, logout, router }) => {
         <Container>
           {children}
         </Container>
+        <BackTop visibilityHeight={64} />
       </Content>
       <Footer style={footerStyle}>
         Develop by javafs @<a href="mailto:1169655050@qq.com">1169655050@qq.com</a>
