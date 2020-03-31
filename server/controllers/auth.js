@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: by1773
+ * @Date: 2020-03-30 15:21:05
+ * @LastEditors: by1773
+ * @LastEditTime: 2020-03-31 09:36:49
+ */
 const {
   generateToken,
   getUserInfo
@@ -36,6 +44,8 @@ class AuthController {
   }
 
   static prepareAuth(ctx) {
+    console.log('******************ctx*********************')
+    console.log(ctx)
     ctx.verifyParams({
       url: {
         type: 'string',

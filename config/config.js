@@ -1,7 +1,15 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: by1773
+ * @Date: 2020-03-30 15:21:05
+ * @LastEditors: by1773
+ * @LastEditTime: 2020-03-30 15:47:58
+ */
 module.exports = {
   github: {
-    clientId: '2f7ccc2b2c1c0e67c2bc',
-    clientSecret: '9d07389cb263ba0a6cb75440c0547721300411a0',
+    clientId: '8b3554d1bc7d11688d9a',
+    clientSecret: '748ef32cbe900810cd36f1cebf59c1b46f71cb3c',
     oauthUrl: 'https://github.com/login/oauth/authorize',
     scope: 'user',
     tokenUrl: 'https://github.com/login/oauth/access_token',

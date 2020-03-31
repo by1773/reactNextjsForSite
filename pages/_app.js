@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: by1773
+ * @Date: 2020-03-30 15:21:05
+ * @LastEditors: by1773
+ * @LastEditTime: 2020-03-31 10:39:43
+ */
 /**
  * 这个文件默认覆盖nextjs的app文件
  */
@@ -10,6 +18,13 @@ import WithRedux from "../lib/with-redux"
 
 import 'antd/dist/antd.css'
 
+
+/**
+ * 路由钩子函数   含6个
+ * routeChangeStart
+ * routeChangeComplete
+ * routeChangeError
+ */
 class MyApp extends App {
   state = {
     loading: false
@@ -40,6 +55,7 @@ class MyApp extends App {
   }
 
   static async getInitialProps(ctx) {
+    console.log('------我是一个异步的组件初始化的一些状态')
     const { Component } = ctx
     let pageProps = {}
     if(Component.getInitialProps) {
@@ -52,6 +68,7 @@ class MyApp extends App {
   
   render() {
     const { Component, reduxStore, pageProps={} } = this.props
+    console.log('-------',pageProps)
     return (
       <Container>
         <Provider store={reduxStore}>
