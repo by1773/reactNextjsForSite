@@ -33,7 +33,7 @@
     "lru-cache": "^5.1.1",
     "markdown-it": "^9.0.1",
     "module-alias": "^2.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "next": "^9.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
